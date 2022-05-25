@@ -7,18 +7,18 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.example.demo.dao.ProductDao;
-import com.example.demo.enitity.Product;
+import com.example.demo.dao.MajorDao;
+import com.example.demo.enitity.Major;
 
 
 @Repository
-public class PgProductDao implements ProductDao {
+public class PgMajorDao implements MajorDao {
 	
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public List<Product> findAll() {
-        return jdbcTemplate.query("SELECT * FROM productstb ORDER BY product_id",
-            new BeanPropertyRowMapper<Product>(Product.class));
+    public List<Major> findAll() {
+        return jdbcTemplate.query("SELECT * FROM major ",
+            new BeanPropertyRowMapper<Major>(Major.class));
     }
 }
